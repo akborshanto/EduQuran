@@ -8,7 +8,7 @@ import { Dakhil } from "../page/dakhil/Dakhil";
 import login from './../page/login/login';
 import Login from "./../page/login/login";
 import { Register } from "../page/register/register";
-import { Addmision } from "../page/admisson/Addmision";
+import { Admission } from "../page/admisson/Addmision";
 
 
 export const router = createBrowserRouter([
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/admission',
-        element:<Addmision></Addmision>,
+        element:<Admission></Admission>,
 
       },
     ]
