@@ -2,8 +2,13 @@ import { createBrowserRouter } from "react-router-dom";
 import { Main } from "../main/Main";
 import { Home } from "../page/home/Home";
 import { Erro } from './../shared/Erro';
-import { Ebtedaye } from "../page/home/ebtedaye/Ebtedaye";
-import { Dakhil } from "../page/home/dakhil/Dakhil";
+import { Ebtedaye } from "../page/ebtedaye/Ebtedaye";
+import { Dakhil } from "../page/dakhil/Dakhil";
+
+import login from './../page/login/login';
+import Login from "./../page/login/login";
+import { Register } from "../page/register/register";
+import { Addmision } from "../page/admisson/Addmision";
 
 
 export const router = createBrowserRouter([
@@ -24,7 +29,21 @@ export const router = createBrowserRouter([
       {
         path:'/dakhil',
         element:<Dakhil></Dakhil>
-      }
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
+      {
+        path:'/register',
+        element:<Register></Register>,
+        
+      },
+      {
+        path:'/admission',
+        element:<Addmision></Addmision>,
+
+      },
     ]
   }
 ]);

@@ -1,4 +1,9 @@
 import React from 'react'
+type User={
+  href:string,
+  name:string
+}
+
 const footerNavs:{href:string,name:string} []= [
   {
       href: 'javascript:void()',
