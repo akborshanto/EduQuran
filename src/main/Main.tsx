@@ -6,9 +6,13 @@ import { Navbar } from '../shared/Navbar'
 
 export const Main = () => {
   return (
-    <div>
+    <div >
 <Navbar></Navbar>
+<div className='container mx-auto'>
 <Outlet></Outlet>
+
+</div>
+
 <Footer></Footer>
 
     </div>
