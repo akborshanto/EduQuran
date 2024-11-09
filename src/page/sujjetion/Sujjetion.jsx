@@ -1,7 +1,8 @@
 import React from 'react'
+import { SujjetionItems } from './sujjetionItem/sujjetionItem'
 
 export const Sujjetion = () => {
   return (
-    <div>Sujjetion</div>
+    <div><SujjetionItems></SujjetionItems></div>
   )
 }

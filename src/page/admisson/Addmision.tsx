@@ -23,7 +23,7 @@ interface AdmissionFormData {
 }
 
 export const Admission = () => {
-  const [uploadedImageUrl, setUploadedImageUrl] = useState('');
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string>('');
 
   // Imgbb API Key
   const imgbbApiKey = '1a966cfbd07e3910ee83643cc841280a';
@@ -163,8 +163,19 @@ export const Admission = () => {
       {/* Display the uploaded image */}
       {uploadedImageUrl && (
         <div>
-          <p>Uploaded Image:</p>
-          <img src={uploadedImageUrl} alt="Uploaded" className="mt-2" />
+
+
+
+
+
+
+<img src={uploadedImageUrl} alt="Uploaded" className="mt-2" />
+
+
+
+
+      
+     
         </div>
       )}
     </div>
