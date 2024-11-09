@@ -37,7 +37,7 @@ export const Navbar = () => {
       { title: 'Home', path: '/' },
       { title: 'Ebtedaye', path: '/ebtedaye' },
       { title: 'Dakhil', path: 'Dakhil' },
-      { title: 'ontact', path: 'javascript:void(0)' },
+      { title: 'Sujjetion', path: '/sujjetion' },
     ];
   return (
     <div><nav className="bg-[#004B6B] text-white w-full border-b md:border-0 md:static">

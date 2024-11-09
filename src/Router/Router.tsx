@@ -9,6 +9,7 @@ import login from './../page/login/login';
 import Login from "./../page/login/login";
 import { Register } from "../page/register/register";
 import { Admission } from "../page/admisson/Addmision";
+import { Sujjetion } from "../page/sujjetion/Sujjetion";
 
 
 export const router = createBrowserRouter([
@@ -29,6 +30,10 @@ export const router = createBrowserRouter([
       {
         path:'/dakhil',
         element:<Dakhil></Dakhil>
+      },
+      {
+        path:'/sujjetion',
+        element:<Sujjetion></Sujjetion>
       },
       {
         path:'/login',

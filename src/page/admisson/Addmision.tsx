@@ -26,7 +26,7 @@ export const Admission = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState('');
 
   // Imgbb API Key
-  const imgbbApiKey = 'YOUR_IMGBB_API_KEY';
+  const imgbbApiKey = '1a966cfbd07e3910ee83643cc841280a';
 
   const { register, control, handleSubmit, formState: { errors } } = useForm<AdmissionFormData>();
 
