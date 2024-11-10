@@ -48,7 +48,7 @@ export const OurTeacher = () => {
     <div className="max-w-screen-xl mx-auto px-4 text-center md:px-8">
         <div className="max-w-xl mx-auto">
             <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">
-                Meet our team
+                Meet our All Teacher
             </h3>
             <p className="text-gray-600 mt-3">
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum has been the industry's standard dummy.
