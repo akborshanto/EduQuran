@@ -27,74 +27,75 @@ export const Register = () => {
     formData.append("image", imageFile);
   
     try {
-      // Step 1: Upload image to imgbb API
+      // Upload image to imgbb API
+      const imageUrl = await uploadImage(formData);
+  
+      if (imageUrl) {
+        // Send user data with uploaded image URL
+        const userCreated = await createUser({ ...data, uploadedImageUrl: imageUrl });
+  
+        if (userCreated) {
+          // Show success alert
+          showAlert("success", "Your account has been created successfully!");
+        } else {
+          // Show error alert if user creation failed
+          showAlert("error", "Failed to create user, please try again.");
+          setError("Failed to submit user data");
+        }
+      } else {
+        // Show error alert if image upload failed
+        showAlert("error", "Image upload failed, please try again.");
+        setError("Image upload failed");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      showAlert("error", "Something went wrong! Please try again later.");
+      setError("An error occurred. Please try again.");
+    } finally {
+      setLoading(false); // Stop loading once the process is complete
+    }
+  };
+  
+  // Function to upload image
+  const uploadImage = async (formData) => {
+    try {
       const response = await axios.post(
         `https://api.imgbb.com/1/upload?key=${imgbbApiKey}`,
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
-  
-      if (response.data.success) {
-        // If image is uploaded successfully, get the URL
-        const imageUrl = response.data.data.url;
-        setUploadedImageUrl(imageUrl);
-  
-        // Step 2: Send user data with the uploaded image URL
-        const userData = { ...data, uploadedImageUrl: imageUrl };
-        const userResponse = await axios.post(
-          "http://localhost:5001/api/posts", // Adjust the URL as needed
-          userData
-        );
-        console.log(userResponse.data);
-  
-        if (userResponse.data.userId) {
-          // Success: Display a SweetAlert2 toast
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your account has been created successfully!",
-            showConfirmButton: false,
-            timer: 1500,
-            customClass: {
-              popup: "custom-popup", // Custom class for the popup
-            },
-            didOpen: () => {
-              Swal.getPopup().style.backgroundColor = "#28a745"; // Change the background color
-              Swal.getPopup().style.color = "#fff"; // Ensure the text is white for readability
-            },
-          });
-        } else {
-          // Error: If user submission failed, set the error
-          setError("Failed to submit user data");
-          Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Failed to create user, please try again.",
-          });
-        }
-        
-
-
-      } else {
-        // Error: If image upload failed, set the error
-        setError("Image upload failed");
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Image upload failed, please try again.",
-        });
-      }
+      return response.data.success ? response.data.data.url : null;
     } catch (error) {
-      console.error("Error:", error);
-      setError("An error occurred. Please try again.");
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Something went wrong! Please try again later.",
-      });
-    } finally {
-      setLoading(false); // Stop loading once the process is complete
+      console.error("Image upload failed:", error);
+      return null;
     }
+  };
+  
+  // Function to create user
+  const createUser = async (userData) => {
+    try {
+      const response = await axios.post("http://localhost:5001/api/posts", userData);
+      return response.data.userId; // Return userId if user was created successfully
+    } catch (error) {
+      console.error("User creation failed:", error);
+      return false;
+    }
+  };
+  
+  // Function to show SweetAlert
+  const showAlert = (icon, text) => {
+    Swal.fire({
+      position: "top-end",
+      icon: icon,
+      title: text,
+      showConfirmButton: false,
+      timer: 1500,
+      customClass: { popup: "custom-popup" },
+      didOpen: () => {
+        Swal.getPopup().style.backgroundColor = icon === "success" ? "#28a745" : "#dc3545"; // Success/Fail colors
+        Swal.getPopup().style.color = "#fff";
+      },
+    });
   };
   
   
