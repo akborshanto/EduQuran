@@ -10,6 +10,11 @@ const tabItems = [
 ];
 
 export const IbtedayeClass = () => {
+
+
+
+
+
   return (
     <div>
       <Tabs.Root

@@ -7,9 +7,7 @@ import NewsLetter from '../../component/NewsLetter'
 export const Home = () => {
   return (
     <div><Banner></Banner>
-    <OurTeacher></OurTeacher>
-    <TopStudent></TopStudent>
-    <NewsLetter></NewsLetter>
+ 
     </div>
   )
 }

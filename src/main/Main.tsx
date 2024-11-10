@@ -7,10 +7,10 @@ import Upeer from '../shared/Upeer'
 
 export const Main = () => {
   return (
-    <div >
+    <div  className=''>
   <Upeer></Upeer>
 <Navbar></Navbar>
-<div className='container mx-auto'>
+<div className='container mx-auto '>
 <Outlet></Outlet>
 
 </div>
