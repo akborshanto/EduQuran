@@ -7,9 +7,9 @@ import { Dakhil } from "../page/dakhil/Dakhil";
 
 import login from './../page/login/login';
 import Login from "./../page/login/login";
-import { Register } from "../page/register/register";
 import { Admission } from "../page/admisson/Addmision";
 import { Sujjetion } from "../page/sujjetion/Sujjetion";
+import { Register } from './../page/register/register';
 
 
 export const router = createBrowserRouter([

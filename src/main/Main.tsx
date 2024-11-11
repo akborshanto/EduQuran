@@ -7,9 +7,13 @@ import Upeer from '../shared/Upeer'
 
 export const Main = () => {
   return (
-    <div  className=''>
+    <div  className='h-full z-50   top-0'>
   <Upeer></Upeer>
-<Navbar></Navbar>
+  <div className='sticy '>
+  <Navbar></Navbar>
+
+  </div>
+
 <div className='container mx-auto '>
 <Outlet></Outlet>
 
