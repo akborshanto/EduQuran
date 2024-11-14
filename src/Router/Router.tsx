@@ -4,51 +4,59 @@ import { Home } from "../page/home/Home";
 import { Erro } from './../shared/Erro';
 import { Ebtedaye } from "../page/ebtedaye/Ebtedaye";
 import { Dakhil } from "../page/dakhil/Dakhil";
-
-import login from './../page/login/login';
-import Login from "./../page/login/login";
+import Login from './../page/login/login'; // Corrected duplicate import
 import { Admission } from "../page/admisson/Addmision";
 import { Sujjetion } from "../page/sujjetion/Sujjetion";
 import { Register } from './../page/register/register';
-
+import Dashboard from "../Dahboard/Dashboard";
+import Student from "../Dahboard/Student/Student"; // Corrected the import path
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <Erro></Erro>,
-    children: [  // Corrected "Children" to "children"
+    errorElement: <Erro />,
+    children: [
       {
         path: '/',
         element: <Home />,
-
       },
       {
         path:'/ebtedaye',
-        element:<Ebtedaye></Ebtedaye>
+        element:<Ebtedaye />,
       },
       {
         path:'/dakhil',
-        element:<Dakhil></Dakhil>
+        element:<Dakhil />,
       },
       {
         path:'/sujjetion',
-        element:<Sujjetion></Sujjetion>
+        element:<Sujjetion />,
       },
       {
         path:'/login',
-        element:<Login></Login>
+        element:<Login />,
       },
       {
         path:'/register',
-        element:<Register></Register>,
-        
+        element:<Register />,
       },
       {
         path:'/admission',
-        element:<Admission></Admission>,
-
+        element:<Admission />,
       },
+
+      // Dashboard Route
+      {
+        path:'/dashboard',
+        element: <Dashboard />,
+        children: [
+          {
+            path: 'student',  // Nested path for student
+            element: <Student />
+          }
+        ]
+      }
     ]
   }
 ]);

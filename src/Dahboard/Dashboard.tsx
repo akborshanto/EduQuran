@@ -1,8 +1,12 @@
 import React from 'react'
+import Sidebar from './D.Componnent/Sidebar'
 
 const Dashboard = () => {
+
+
+
   return (
-    <div>Dashboard</div>
+    <div><Sidebar></Sidebar></div>
   )
 }
 
